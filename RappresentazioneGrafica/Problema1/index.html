@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar: Algorithm Selection -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>AlgoViz</h2>
+            </div>
+            <div class="sidebar-content">
+                <div class="section-title">Algorithms</div>
+                <ul id="algorithm-list" class="nav-list">
+                    <!-- Dynamically populated -->
+                    <li class="nav-item active" data-algo="dummy">
+                        <span class="material-icons-round">dashboard</span>
+                        <span>Dashboard</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="current-algo-title">Select an Algorithm</h1>
+                <div class="top-bar-actions">
+                    <button class="icon-btn"><span class="material-icons-round">settings</span></button>
+                    <button class="icon-btn"><span class="material-icons-round">help_outline</span></button>
+                </div>
+            </header>
+
+            <!-- Visualization Stage -->
+            <div id="visualization-stage" class="stage">
+                <div class="placeholder-text">Select an algorithm to start visualizing</div>
+            </div>
+
+            <!-- Control Panel -->
+            <footer class="control-panel">
+                <div class="control-group">
+                    <button id="btn-reset" class="control-btn secondary" title="Reset">
+                        <span class="material-icons-round">restart_alt</span>
+                    </button>
+                </div>
+
+                <div class="control-group playback-controls">
+                    <button id="btn-prev" class="control-btn" title="Step Back">
+                        <span class="material-icons-round">skip_previous</span>
+                    </button>
+                    <button id="btn-play-pause" class="control-btn primary" title="Play/Pause">
+                        <span class="material-icons-round">play_arrow</span>
+                    </button>
+                    <button id="btn-next" class="control-btn" title="Step Forward">
+                        <span class="material-icons-round">skip_next</span>
+                    </button>
+                </div>
+
+                <div class="control-group speed-control">
+                    <span class="material-icons-round small-icon">speed</span>
+                    <input type="range" id="speed-slider" min="1" max="100" value="50">
+                </div>
+
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
